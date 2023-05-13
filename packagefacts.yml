@@ -1,0 +1,14 @@
+---
+- name: show packages
+  hosts: all
+  tasks:
+    - name: gather package facts
+      ansible.builtin.package_facts:
+        manager: auto
+    - name: list installed packages
+      ansible.builtin.debug:
+        var: ansible_facts['packages']
+    - name: show bash version
+      ansible.builtin.debug:
+        msg: "version {{ ansible_facts['packages']['bash'][0]['version'] }}"
+

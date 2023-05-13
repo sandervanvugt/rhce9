@@ -1,0 +1,21 @@
+--
+- name: use the storage RHEL system role to create LVM on /dev/sdb
+  hosts: all
+  roles:
+    - name: storage
+      storage_pools:
+        - name: vgdata
+          type: lvm
+          disks:
+            - /dev/sdb
+          volumes:
+            - name: lvdata
+              size: 1g
+              mount_point: /lvdata
+              fs_type: xfs
+            - name: lvfinance
+              size: 5g
+              mount_point: /lvfinance
+              fs_type: ext4
+      when: ansible_facts['devices']['sdb'] is defined
+
