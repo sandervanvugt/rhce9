@@ -1,11 +1,3 @@
-[lamp]
-ansible1.example.com
-
-[file]
-ansible2.example.com
-
-[nodes:children]
-lamp
-file
-
-
+ansible1
+ansible2
+ansible3
