@@ -1,0 +1,14 @@
+---
+- name: checking out magic variables
+  hosts: all
+  vars:
+    user: anna
+    groups: staff
+  tasks:
+  - name: printing hostvars
+    debug: 
+      var: {{ hostvars['ansible1']
+  - name: creating user {{ user }} as a member of group {{ groups }}
+    user:
+      name: "{{ user }}"
+      groups: "{{ groups }}"
