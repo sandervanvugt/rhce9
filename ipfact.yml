@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: yes
+  tasks:
+  - name: show IP address
+    debug:
+      msg: >
+        This host uses IP address {{ ansible_facts.default_ipv4.address }} 
