@@ -1,5 +1,5 @@
 - name: start some services
-  hosts: ansible2
+  hosts: ansible2.example.com
   vars:
     my_services:
       - crond
