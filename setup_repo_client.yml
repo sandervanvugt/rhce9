@@ -1,6 +1,6 @@
 --- 
 - name: configure repository
-  hosts: nodes
+  hosts: all
   vars:
     my_package: nmap
   tasks:
@@ -13,9 +13,9 @@
     when: my_package in ansible_facts.packages
   - name: connect to example repo
     yum_repository:
-      name: lesson12
-      description: RHCE8 lesson 12 repo
-      file: lesson 12
+      name: lesson11
+      description: RHCE9 lesson 11 repo
+      file: lesson 11
       baseurl: ftp://control.example.com/repo/
       gpgcheck: yes
       #  - name: install repo GPG key

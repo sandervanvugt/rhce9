@@ -1,6 +1,6 @@
 ---
 - name: test assert
-  hosts: ansible2.example.com
+  hosts: ansible2
   tasks:
   - name: test assert
     assert:
@@ -9,11 +9,4 @@
       msg: bad luck dude
   - name: print text is assert did not fail
     debug:
-      msg: ens33 exists
-
-- name: second play
-  hosts: ansible2.example.com
-  tasks:
-  - name: placeholder
-    debug:
-      msg: this is part 2
+      msg: ens34 exists
