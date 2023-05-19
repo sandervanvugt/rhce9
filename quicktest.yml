@@ -5,4 +5,4 @@
     - name: check a fact
       debug: 
         msg: echo today is 06
-      when: '"25" in ansible_date_time.day'
+      when: '"07" in ansible_date_time.day'
