@@ -1,7 +1,7 @@
 - name: use subscription manager to register and set up repos
   hosts: ansible2
   tasks:
-  - name: register and subscribe ansible5
+  - name: register and subscribe ansible2
     redhat_subscription:
       username: bob@example.com
       password: verysecretpassword
