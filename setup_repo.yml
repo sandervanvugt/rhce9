@@ -1,37 +1,29 @@
 ---
-- name: install FTP to export repo
+- name: install apache to export repo
   hosts: localhost
   tasks:
-  - name: install FTP server
+  - name: install apache server
     yum:
-      name: vsftpd
+      name: httpd
       state: latest
-  - name: start FTP server
+  - name: start apache server
     service:
-      name: vsftpd
+      name: httpd
       state: started
       enabled: yes
-  - name: open firewall for FTP
+  - name: open firewall 
     firewalld:
-      service: ftp
+      service: http
       state: enabled
-      permanent: yes
+      permanent: http
 
 - name: setup the repo directory
   hosts: localhost
   tasks:
   - name: make directory
     file:
-      path: /var/ftp/repo
+      path: /var/www/html/repo
       state: directory
-  - name: download packages
-    yum:
-      name: nmap
-      download_only: yes
-      dowload_dir: /var/ftp/repo
-  - name: createrepo
-    command: createrepo /var/ftp/repo
-
-
-
+  - debug:
+      msg: you need to manually copy content from the installation iso to the repo directory
 
