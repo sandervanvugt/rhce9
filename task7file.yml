@@ -1,0 +1,14 @@
+users:
+  - username: anna
+    pwd: secretpass
+    grp: profs
+  - username: anouk
+    pwd: password
+    grp: students
+  - username: lisa
+    pwd: verysecretpass
+    grp: profs
+  - username: linda
+    pwd: notsosecretpass
+    grp: students
+
