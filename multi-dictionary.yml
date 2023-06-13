@@ -1,6 +1,6 @@
 ---
 - name: show dictionary also known as hash
-  hosts: ansible1
+  hosts: ansible1.example.com
   vars_files:
     - vars/users-dictionary
   tasks:
