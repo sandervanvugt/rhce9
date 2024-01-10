@@ -1,0 +1,15 @@
+---
+- name: add a custom fact
+  hosts: ansible1
+  tasks:
+    - name: creating the directory
+      file:
+        name: /etc/ansible/facts.d/
+        state: directory
+    - name: creating the fact file
+      copy:
+        content: |
+          [facts]
+          type=production
+        dest: /etc/ansible/facts.d/local.fact
+vim 
