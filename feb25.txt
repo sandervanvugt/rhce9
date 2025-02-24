@@ -1,0 +1,185 @@
+    1  sudo subscription-manager register
+    2  id
+    3  sudo vim /etc/hosts
+    4  ping ansible1
+    5  ping ansible2
+    6  history
+    7  sudo dnf install -y git
+    8  git clone https://github.com/sandervanvugt/rhce9
+    9  history
+   10  cd rhce9/
+   11  ls
+   12  history
+   13  sudo dnf repolist
+   14  sudo subscription-manager repost --list | grep -A3 automation-platform
+   15  sudo subscription-manager repos --list | grep -A3 automation-platform
+   16  sudo subscription-manager repos --enable ansible-automation-platform-2.4-for-rhel-9-aarch-roms
+   17  sudo dnf install ansible-core ansible-navigator
+   18  sudo dnf install ansible-core 
+   19  sudo subscription-manager repos --enable ansible-automation-platform-2.4-for-rhel-9-aarch-rpms
+   20  sudo subscription-manager repost --list | grep -A3 automation-platform-2.4
+   21  sudo dnf repolist
+   22  sudo subscription-manager repos --list | grep ansible-automation
+   23  sudo subscription-manager repos --enable ansible-automation-platform-2.4-for-rhel-9-aarch64-rpms
+   24  history
+   25  sudo dnf repolist
+   26  sudo dnf install -y ansible-navigator
+   27  ansible --version
+   28  vim inventory
+   29  ansible -i inventory all -u root -k -m user -a "name=ansible" 
+   30  ansible -i inventory all -u root -k -m shell -a "echo password | passwd --stdin ansible"
+   31  ssh-keygen
+   32  ssh-copy-id ansible1
+   33  ssh-copy-id ansible2
+   34  ansible -i inventory all -u ansible -b -m command -a "ls -l /root" -K
+   35  ansible -i inventory all -u ansible -b -K -m copy -a 'content="ansible ALL=(ALL) NOPASSWD: ALL" dest=/etc/sudoers.d/ansible'
+   36  ansible -i inventory all -m command -a "ls -l /root" -b
+   37  vim ansible.cfg 
+   38  ansible all -a "ls -l /root"
+   39  history
+   40  vim /etc/ansible/hosts
+   41  vim /etc/ansible/ansible.cfg 
+   42  ansible-config init --disabled > ansible.cfg-annoted
+   43  vim ansible.cfg-annoted 
+   44  ansible --version
+   45  cd ..
+   46  ansible --version
+   47  cd rhce9/
+   48  ansible-navigator images
+   49  podman login registry.redhat.io
+   50  ansible-navigator images
+   51  vim ansible-navigator.yml
+   52  ls
+   53  vim vsftpd.yml 
+   54  vim simple.yml
+   55  ansible-navigator run simple.yml 
+   56  vim ansible-navigator.yml
+   57  ansible-navigator run simple.yml 
+   58  ansible-navigator run simple.yml -m stdout
+   59  vim ansible-navigator.yml
+   60  ls -lrt
+   61  vim simple-artifact-2025-02-24T14\:46\:40.715621+00\:00.json 
+   62  ansible-doc -l
+   63  ansible-navigator collections
+   64  ansible-navigator images
+   65  podman pull registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel9:latest
+   66  podman images
+   67  ansible-navigator --eei registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel9:latest --pp never
+   68  cd ..
+   69  git clone https://github.com/sandervanvugt/ansiblebg
+   70  cd rhel9
+   71  ls
+   72  cd rhce9
+   73  ls
+   74  el enf*
+   75  ls enf*
+   76  ansible-navigator run enforce-selinux.yml --eei registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel9:latest --pp never
+   77  mkdir collections
+   78  ansible-galaxy collection install ansible.posix -p collections
+   79  ansible-navigator run enforce-selinux.yml --eei registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel9:latest --pp never
+   80  ssh ansible1
+   81  ls collections/ls
+   82  ls collections/
+   83  ls collections/ansible_collections/
+   84  ansible-playbook enforce-selinux.yml 
+   85  pwd
+   86  vim ansible.cfg
+   87  ansible all -a "ls -l /root"
+   88  vim enforce-selinux
+   89  vim enforce-selinux.yml 
+   90  ansible-playbook enforce-selinux.yml 
+   91  ansible-navigator run enforce-selinux.yml --eei registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel9:latest --pp never
+   92  ansible-navigator settings --samples > my.yaml
+   93  ansible-navigator settings --sample > my.yaml
+   94  vim my.yaml 
+   95  history
+   96  ansible-navigator run enforce-selinux.yml --eei registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel9:latest --pp never
+   97  history | grep confi
+   98  vim ansible.cfg-annoted 
+   99  ansible-doc -l
+  100  vim enforce-selinux.yml 
+  101  vim enforce-selinux-simplified.yml 
+  102  ansible-playbook enforce-selinux-simplified.yml 
+  103  sudo ls -l /root
+  104  ansible-playbook enforce-selinux-simplified.yml -K
+  105  ansible-galaxy collection install community.crypto -p collections
+  106  ansible-galaxy collection list
+  107  ansible-galaxy collection list --collections-path collections
+  108  ansible-navigator
+  109  vim ansible.cfg
+  110  ansible-galaxy collection list
+  111  vim ansible.cfg
+  112  ansible-galaxy collection list
+  113  vim ansible.cfg
+  114  vim myplaybook.yml
+  115  sudo dnf provides */semanage
+  116  vim myplaybook.yml
+  117  ansible-doc file
+  118  ansible-doc -l
+  119  ansible-doc seboolean
+  120  vim myplaybook.yml
+  121  ansible-playbook myplaybook.yml 
+  122  vim myplaybook.yml
+  123  ansible-playbook myplaybook.yml 
+  124  vim myplaybook.yml
+  125  ansible-playbook myplaybook.yml 
+  126  ls
+  127  vim user.yml 
+  128  ansible-playbook user.yml 
+  129  vim user.yml 
+  130  ansible-playbook user.yml 
+  131  vim user.yml 
+  132  ansible all -m copy -a "src=/etc/hosts dest=/etc/hosts"
+  133  cat /etc/hosts
+  134  vim user.yml 
+  135  ansible-playbook user.yml 
+  136  ansible-playbook user.yml -e user=linda
+  137  vim user.yml 
+  138  vim vars/usrs.yml
+  139  ansible-playbook user.yml -e user=linda
+  140  ansible-playbook user.yml
+  141  vim user.yml 
+  142  ansible-doc -l
+  143  ansible-doc -t 
+  144  ansible-doc -t keyword
+  145  ansible-doc -t keyword -l
+  146  ansible-doc -t keyword vars_files
+  147  ansible-doc -t keyword become
+  148  mkdir host_vars
+  149  vim host_vars/ansible1
+  150  ansible-playbook user.yml 
+  151  vim user.yml 
+  152  ansible-playbook user.yml 
+  153  vim host_vars/ansible1 
+  154  cd host_vars/
+  155  mv ansible1 ansible1.yml
+  156  cd ..
+  157  ansible-playbook user.yml 
+  158  vim host_vars/ansible2
+  159  ansible-playbook user.yml 
+  160  ls host_vars/
+  161  mkdir group_vars
+  162  vim group_vars/all
+  163  ansible-playbook user.yml 
+  164  ansible-inventory --graph --vars
+  165  vim user.yml 
+  166  ansible-doc user
+  167  vim user.yml 
+  168  ansible-playbook user.yml 
+  169  vim user.yml 
+  170  ansible-playbook user.yml 
+  171  id anna
+  172  ansible all -a "id anna"
+  173  vim user.yml 
+  174  ansible-doc debug
+  175  vim user.yml 
+  176  ansible-playbook user.yml 
+  177  vim user.yml 
+  178  ansible-playbook user.yml 
+  179  vim user.yml 
+  180  ansible-playbook user.yml 
+  181  vim register.yml
+  182  ansible-playbook register.yml 
+  183  vim register_command.yml 
+  184  ansible-playbook register_command.yml 
+  185  history > /tmp/feb25.txt
