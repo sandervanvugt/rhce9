@@ -183,3 +183,199 @@
   183  vim register_command.yml 
   184  ansible-playbook register_command.yml 
   185  history > /tmp/feb25.txt
+  186  sudo dnf install pcp-system-tools pcp pcp-gui
+  187  ansible-vault --help
+  188  ansible-vault create sensitive_values
+  189  cat sensitive_values 
+  190  ansible-vault view sensitive_values 
+  191  ansible-vault edit sensitive_values 
+  192  ansible-vault create secret.yml
+  193  grep secret.yml *
+  194  vim users_vault.yml 
+  195  vim user.yml 
+  196  ansible-doc user
+  197  ansible-playbook user.yml 
+  198  ansible-playbook --ask-vault-pass user.yml 
+  199  echo password > vault-pass
+  200  chmod 600 vault-pass 
+  201  ansible-playbook --vault-password-file-vault-pass user.yml 
+  202  ansible-playbook --vault-password-file=vault-pass user.yml 
+  203  ansible ansible2 -m setup
+  204  ansible ansible2 -m setup | less
+  205  vim facts.yml 
+  206  ansible-playbook facts.yml 
+  207  ansible-playbook facts.yml | less
+  208  vim ipfact.yml 
+  209  ansible-playbook ipfact.yml 
+  210  vim ipfact.yml 
+  211  ansible-playbook ipfact.yml 
+  212  vim ipfact.yml 
+  213  ansible-playbook ipfact.yml 
+  214  vim ipfact.yml 
+  215  ansible-playbook ipfact.yml 
+  216  vim ipfact.yml 
+  217  ansible ansible2 -m setup | less
+  218  ls arrays
+  219  ls
+  220  ls vars
+  221  cd ..
+  222  cd vars
+  223  cd -
+  224  cd vars
+  225  vim users-dictionary 
+  226  vim users-list 
+  227  cd ..
+  228  grep users-list *
+  229  vim multi-list.yml 
+  230  ansible-playbook multi-list.yml 
+  231  ls
+  232  vim multi-list.yml 
+  233  ansible-playbook multi-list.yml 
+  234  vim multi-dictionary.yml 
+  235  ansible-playbook multi-dictionary.yml 
+  236  vim newlocalfacts.yml 
+  237  vim inventory
+  238  vim newlocalfacts.yml 
+  239  ls *fact
+  240  find . -type d
+  241  find . -name "*fact"
+  242  vim newlocalfacts.yml 
+  243  vim lesson7/facts/localfacts.fact 
+  244  ansible-playbook newlocalfacts.yml 
+  245  ansible ansible2 -m setup -a "filter=ansible_local"
+  246  history
+  247  vim loopservices.yml 
+  248  ansible-playbook loopservices.yml 
+  249  ansible-doc dnf
+  250  ansible-doc service
+  251  vim loopusers.yml 
+  252  ansible-playbook loopusers.yml 
+  253  vim loop-over-variable.yml 
+  254  vim loopvars.yml 
+  255  vim loop-over-variable.yml 
+  256  vim distro.yml 
+  257  ansible-playbook distro -e my_package=httpd
+  258  ansible-playbook distro.yml -e my_package=httpd
+  259  vim distro.yml 
+  260  ansible-playbook distro.yml -e my_package=httpd
+  261  vim distro.yml 
+  262  ansible-playbook distro.yml -e mypackage=httpd
+  263  vim quicktest.yml 
+  264  ansible-playbook quicktest.yml 
+  265  vim quicktest.yml 
+  266  ansible-playbook quicktest.yml 
+  267  vim when_multiple.yml 
+  268  ansible-playbook when_multiple.yml 
+  269  vim when_multiple.yml 
+  270  ansible-playbook when_multiple.yml 
+  271  vim when_multiple.yml 
+  272  vim when_multiple_complex.yml 
+  273  vim ifsize.yml 
+  274  ansible-playbook ifsize.yml 
+  275  vim register.yml 
+  276  ansible-playbook register.yml 
+  277  cat register_command.yml 
+  278  vim handlers.yml 
+  279  ansible-playbook handlers.yml 
+  280  vim handlers.yml 
+  281  touch /tmp/index.html
+  282  ansible-playbook handlers.yml 
+  283  vim handlers.yml 
+  284  ansible-playbook handlers.yml 
+  285  ansible all -m file -a "name=/var/www/html/index.html state=absent"
+  286  ansible-playbook handlers.yml 
+  287  vim blocks.yml 
+  288  vim blocks2.yml 
+  289  vim block2.yaml 
+  290  ansible-playbook block2.yaml 
+  291  vim idem.yml
+  292  ansible-playbook idem.yml 
+  293  vim idem.yml
+  294  ansible-playbook idem.yml 
+  295  vim failure.yml 
+  296  ansible-playbook failure.yml 
+  297  vim failure.yml 
+  298  ansible-playbook failure.yml 
+  299  vim listing725.yaml 
+  300  ansible-playbook listing725.yaml 
+  301  history
+  302  vim includes-and-imports.yml 
+  303  vim vsftpd.j2 
+  304  vim vsftpd-template.yml 
+  305  ansible-playbook vsftpd-template.yml 
+  306  ansible ansible2 -a "cat /etc/vsftpd/vsftpd.conf"
+  307  ls host*
+  308  vim hostsfile.yml 
+  309  vim hosts.j2 
+  310  vim hostsfile.yml 
+  311  ansible-playbook hostsfile.yml 
+  312  vim hostsfile.yml 
+  313  ansible-playbook hostsfile.yml 
+  314  ansible ansible1 -a "cat /etc/hosts.test"
+  315  vim hosts.j2 
+  316  vim selinux.yml 
+  317  ansible-galaxy role install nginxinc.nginx
+  318  cd ../.ansible/roles/nginxinc.nginx/
+  319  ls
+  320  ls tasks
+  321  ls templates/
+  322  ls files/
+  323  cd -
+  324  vim playrole.yml
+  325  ansible-playbook playrole.yml 
+  326  ansible-galaxy collection install community.general
+  327  ansible-doc -l | grep firewalld
+  328  ansible-playbook playrole.yml 
+  329  ansible-galaxy role install geerlingguy.nginx
+  330  ansible-galaxy role list
+  331  vim nginx-role.yml 
+  332  ansible-playbook nginx-role.yml 
+  333  ansible-galaxy role init motd
+  334  tree motd
+  335  vim motd/tasks/main.yml 
+  336  ls mot*
+  337  vim motd-role.yml 
+  338  sudo dnf install rhel-system-roles
+  339  cd /usr/share/doc/rhel-system-roles/
+  340  ls
+  341  cd selinux/
+  342  ls
+  343  pwd
+  344  cp example-selinux-playbook.yml ~/rhel9/
+  345  cp example-selinux-playbook.yml ~/rhce9/
+  346  cd ~/rhce9/
+  347  vim example-selinux-playbook.yml 
+  348  sudo mkdir /web
+  349  vim example-selinux-playbook.yml 
+  350  ansible-playbook example-selinux-playbook.yml 
+  351  ansible all -a "ls -ld /web"
+  352  ansible all -a "ls -lZd /web"
+  353  history
+  354  ansible all -i localhost, -m debug -a "msg={{ 'mypassword' | password_hash('sha512', 'mysecretsalt') }}"
+  355  vim userpw.yml 
+  356  ansible-playbook userpw.yml 
+  357  ssh anna@ansible2
+  358  vim anotherway.yml
+  359  ansible-playbook anotherway.yml 
+  360  vim anotherway.yml
+  361  ansible-playbook anotherway.yml -e password=secret
+  362  ssh lisa@ansible1
+  363  vim anotherway.yml
+  364  ansible-playbook anotherway.yml -e password=secret
+  365  ssh lisa@ansible1
+  366  cat anotherway.yml 
+  367  vim lab14.yaml
+  368  ansible-playbook lab14.yaml 
+  369  vim lab14.yaml
+  370  ansible all -a "lsblk"
+  371  ansible ansible1 -m setup | less
+  372  vim lab14.yaml
+  373  ansible-playbook lab14.yaml 
+  374  ls *adva*
+  375  vim storage-advanced.yml 
+  376  ansible-playbook storage-advanced.yml 
+  377  vim storage-advanced.yml 
+  378  ansible-playbook storage-advanced.yml 
+  379  ansible ansible1 -a "lvs"
+  380  ansible ansible1 -a "lsblk"
+  381  history > /tmp/feb25.txt
